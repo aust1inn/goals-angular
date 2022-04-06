@@ -28,6 +28,24 @@ export class GoalComponent implements OnInit {
     }
   }
 
+  deleteGoal(isComplete: boolean, index:number){
+    if (isComplete) {
+      let toDelete = confirm(`Are you sure you want to delete ${this.goals[index].name}?`)
+
+      if (toDelete){
+        this.goals.splice(index,1)
+      }
+    }
+  }
+
+  // addnewGoal(goal) {
+  //   let goalLength = this.goals.length;
+  //   let goal.id = goalLength+1;
+  //   goal.completeDate = new Date (goal.completeDate);
+  //   this.goals.push(goal);
+
+  // }
+
   constructor() { }
 
   ngOnInit(): void {

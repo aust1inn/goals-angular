@@ -1,4 +1,4 @@
-import { Directive,ElementRef,HostListener} from '@angular/core';
+import { Directive,ElementRef, HostListener} from '@angular/core';
 
 @Directive({
   selector: '[appStrikethrough]'
@@ -6,18 +6,18 @@ import { Directive,ElementRef,HostListener} from '@angular/core';
 export class StrikethroughDirective {
 
     
-  constructor(private elem:ElementRef){}
-
-  @HostListener("mouseenter") onMouseEnter(){
-    this.textDeco("line-through")
+  constructor(private elem: ElementRef){
   }
 
-  @HostListener("mouseleave") onMouseLeave(){
-    this.textDeco("None")
+  @HostListener ("click") onClicks () {
+    this.textDeco('line-through')
   }
 
-  private textDeco(action:string){
-    this.elem.nativeElement.style.textDecoration=action;
-
+  @HostListener ("dbClick") onDoubleClicks () {
+    this.textDeco('none')
   }
+
+ private textDeco (action:string) {
+  this.elem.nativeElement.style.textDecoration = action
+ }
 }

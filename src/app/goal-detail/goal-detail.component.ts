@@ -9,12 +9,11 @@ import { Goal } from '../goal';
 export class GoalDetailComponent implements OnInit {
 
   @Input () goal!:Goal;
-  @Output() isComplete = new EventEmitter<boolean>();
+  @Output() complete = new EventEmitter<boolean>();
 
-  goalDelete(complete:boolean){
-    this.isComplete.emit(complete);
+  isComplete(complete:boolean) {
+    this.complete.emit(complete);
   }
-
   constructor() { }
 
   ngOnInit(): void {

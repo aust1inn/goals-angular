@@ -18,8 +18,8 @@ export class GoalComponent implements OnInit {
     new Goal(6,'Plot my world domination plan','Cause I am an evil overlord',new Date(2030,3,14)),
   ];
 
-  toggleDetails(index:number): void{
-    this.goals[index].showDescription = !this.goals[index].showDescription;
+  toggleDetails(index:number) {
+    this.goals[index].showDescription=!this.goals[index].showDescription
   }
 
   completeGoal(isComplete: boolean, index: number){
@@ -45,6 +45,13 @@ export class GoalComponent implements OnInit {
   //   this.goals.push(goal);
 
   // }
+
+  addNewGoal(goal:any){
+    let goalLength = this.goals.length;
+    goal.id = goalLength+1;
+    goal.completeDate = new Date(goal.completeDate)
+    this.goals.push(goal)
+  }
 
   constructor() { }
 
